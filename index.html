@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071a18">
+    <meta
+      name="description"
+      content="A Python toolkit for building Bakong KHQR payment flows in Cambodia. Explore the library and preview a safe, local-only integration example."
+    >
+    <title>KHQR — Payments, made practical</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="KHQR home">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span>khqr<span class="brand-muted">-payment</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#features">Overview</a>
+        <a href="#playground">Playground</a>
+        <a href="#quickstart">Quick start</a>
+      </nav>
+      <a class="header-link" href="https://github.com/henglyrepo/khqr-payment" target="_blank" rel="noreferrer">
+        View on GitHub <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="home">
+      <section class="hero section-wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse-dot"></span> OPEN-SOURCE PYTHON TOOLKIT</div>
+          <h1>Payments, made<br><span>practical.</span></h1>
+          <p class="hero-lede">
+            Build with Cambodia’s KHQR payment standard using a clean, developer-friendly Python library.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#quickstart">Get started <span aria-hidden="true">→</span></a>
+            <a class="button button-quiet" href="https://pypi.org/project/khqr-payment/" target="_blank" rel="noreferrer">
+              <span class="terminal-mark" aria-hidden="true">⌘</span> pip install khqr-payment
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span><span class="meta-check">✓</span> Python 3.10+</span>
+            <span><span class="meta-check">✓</span> USD &amp; KHR</span>
+            <span><span class="meta-check">✓</span> Async-ready</span>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Illustration of a payment QR code and receipt">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="float-card">
+            <div class="receipt-top">
+              <span class="receipt-icon">↗</span>
+              <span class="receipt-label">PAYMENT REQUEST</span>
+              <span class="receipt-state"><i></i> READY</span>
+            </div>
+            <div class="receipt-amount">$12.50 <small>USD</small></div>
+            <div class="receipt-divider"></div>
+            <div class="receipt-merchant"><span class="merchant-avatar">S</span><span><strong>Sunday Coffee</strong><small>Phnom Penh, KH</small></span></div>
+            <div class="receipt-footer"><span>KHQR · DYNAMIC</span><span>•••• 2481</span></div>
+          </div>
+          <div class="hero-orbit-label"><span class="sparkle">✳</span> ONE QR. MANY WALLETS.</div>
+          <div class="hero-caption">A simple toolkit for modern payment flows.</div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Project details">
+        <div class="trust-inner">
+          <span>BUILT FOR DEVELOPERS</span>
+          <span class="trust-divider"></span>
+          <span>KHQR STANDARD</span>
+          <span class="trust-divider"></span>
+          <span>PYTHON PACKAGE</span>
+          <span class="trust-divider"></span>
+          <span>MADE FOR CAMBODIA <span class="flag" aria-label="Cambodia">🇰🇭</span></span>
+        </div>
+      </section>
+
+      <section class="features section-wrap" id="features">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">THE TOOLKIT</div>
+            <h2>Everything you need.<br><span>Nothing you don’t.</span></h2>
+          </div>
+          <p>Skip the boilerplate and focus on your checkout. Generate payment requests, create deep links, and verify status with one small library.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon icon-qr" aria-hidden="true">▦</span>
+            <h3>Create KHQR codes</h3>
+            <p>Build static or dynamic QR payment requests with merchant details, amount, and a transaction reference.</p>
+            <span class="feature-tag">QR GENERATION</span>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon icon-link" aria-hidden="true">↗</span>
+            <h3>Link to payment</h3>
+            <p>Generate a Bakong deeplink so customers can jump from your app straight to their payment experience.</p>
+            <span class="feature-tag">DEEPLINKS</span>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon icon-check" aria-hidden="true">⌁</span>
+            <h3>Check payment status</h3>
+            <p>Use the QR’s MD5 hash to query transaction status through your server-side Python integration.</p>
+            <span class="feature-tag">PAYMENT STATUS</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="playground-section" id="playground">
+        <div class="section-wrap playground-wrap">
+          <div class="playground-intro">
+            <div class="eyebrow">TRY THE CONFIGURATOR</div>
+            <h2>Shape your<br><span>payment flow.</span></h2>
+            <p>Set up a sample request and get a Python snippet to start from. Everything here runs in your browser—no API calls, token, or real payment.</p>
+            <div class="safe-note"><span aria-hidden="true">◈</span><span><strong>Local-only demo</strong><br>Your inputs stay in this page.</span></div>
+          </div>
+          <div class="builder-card">
+            <div class="builder-top">
+              <div><span class="builder-status"></span> KHQR BUILDER <span class="builder-version">DEMO</span></div>
+              <div class="builder-tabs"><span class="tab-active">Configure</span><span>Python</span></div>
+            </div>
+            <div class="builder-content">
+              <form id="builder-form">
+                <div class="form-row">
+                  <label class="field field-wide">MERCHANT NAME
+                    <input id="merchant-name" name="merchantName" value="Sunday Coffee" maxlength="25" required autocomplete="organization">
+                  </label>
+                  <label class="field">CITY
+                    <input id="merchant-city" name="merchantCity" value="Phnom Penh" maxlength="40" required>
+                  </label>
+                </div>
+                <label class="field">BAKONG ACCOUNT ID
+                  <input id="bank-account" name="bankAccount" value="yourname@bank" maxlength="32" required autocomplete="off">
+                </label>
+                <div class="form-row">
+                  <label class="field">AMOUNT
+                    <span class="amount-control"><input id="amount" name="amount" type="number" min="0" step="0.01" value="12.50" required><select id="currency" name="currency" aria-label="Currency"><option>USD</option><option>KHR</option></select></span>
+                  </label>
+                  <label class="field">QR TYPE
+                    <select id="qr-type" name="qrType"><option value="dynamic">Dynamic QR</option><option value="static">Static QR</option></select>
+                  </label>
+                </div>
+                <label class="field">BILL NUMBER <span class="optional-label">OPTIONAL</span>
+                  <input id="bill-number" name="billNumber" value="ORDER-2481" maxlength="25">
+                </label>
+                <div class="builder-output">
+                  <div class="output-heading"><span>PYTHON STARTER</span><button id="copy-code" type="button" class="copy-button">Copy code</button></div>
+                  <pre><code id="python-code"></code></pre>
+                </div>
+                <p class="form-message" id="form-message" aria-live="polite">Example only. Keep API tokens on your server, never in browser code.</p>
+              </form>
+            </div>
+          </div>
+          <div class="preview-card" aria-label="Decorative, non-scannable QR preview">
+            <div class="preview-heading"><span>PREVIEW</span><span class="preview-pill">NOT SCANNABLE</span></div>
+            <div class="preview-qr" id="preview-qr" aria-hidden="true"></div>
+            <div class="preview-merchant" id="preview-merchant">Sunday Coffee</div>
+            <div class="preview-total" id="preview-total">$12.50 <span>USD</span></div>
+            <div class="preview-line">Illustrative sample only</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quickstart section-wrap" id="quickstart">
+        <div class="quickstart-copy">
+          <div class="eyebrow">UP AND RUNNING</div>
+          <h2>Start small.<br><span>Ship confidently.</span></h2>
+          <p>Install the package, then create a client on your server. Your Bakong API token should be kept private and supplied through a secure environment variable.</p>
+          <a class="text-link" href="https://github.com/henglyrepo/khqr-payment#quick-start" target="_blank" rel="noreferrer">Read the full documentation <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="code-card">
+          <div class="code-top"><span><i></i><i></i><i></i></span><span>quick_start.py</span><span class="code-python">PYTHON</span></div>
+          <pre><code><span class="code-purple">import</span> os
+<span class="code-purple">from</span> khqr_payment <span class="code-purple">import</span> KHQRClient
+
+client = KHQRClient(os.environ[<span class="code-green">"BAKONG_API_TOKEN"</span>])
+
+qr = client.create_qr_string(
+    merchant=<span class="code-green">"yourname@bank"</span>,
+    merchant_name=<span class="code-green">"Sunday Coffee"</span>,
+    merchant_city=<span class="code-green">"Phnom Penh"</span>,
+    amount=<span class="code-yellow">12.50</span>,
+    currency=<span class="code-green">"USD"</span>,
+)
+
+<span class="code-purple">print</span>(qr.string)
+<span class="code-purple">print</span>(qr.md5)  <span class="code-comment"># use to check status</span></code></pre>
+        </div>
+      </section>
+
+      <section class="disclaimer section-wrap">
+        <span class="disclaimer-icon" aria-hidden="true">!</span>
+        <p><strong>Unofficial open-source project.</strong> This library is not affiliated with or endorsed by Bakong, the National Bank of Cambodia, or any participating bank. Verify payments through official channels and review the project’s <a href="https://github.com/henglyrepo/khqr-payment/blob/main/SECURITY.md" target="_blank" rel="noreferrer">security guidance</a> before production use.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer section-wrap">
+      <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">K</span><span>khqr<span class="brand-muted">-payment</span></span></a>
+      <span>Open source, built with care in Cambodia.</span>
+      <a href="https://github.com/henglyrepo/khqr-payment" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+{
+  "api_specification": "KHQR KINGDOM",
+  "version": "1.0",
+  "standard": "EMVCo Merchant-Presented QR",
+  "endpoints": [
+    {
+      "name": "Generate KHQR (Individual)",
+      "usage": "For P2P transfers and individual sellers. Directly links to a Bakong account or phone number.",
+      "parameters": [
+        { "field": "bakongAccountId", "type": "String", "mandatory": true, "max_length": 32, "description": "Unique Bakong account identifier (e.g., name@bank)." },
+        { "field": "merchantName", "type": "String", "mandatory": true, "max_length": 25, "description": "Display name of the receiver." },
+        { "field": "accountInformation", "type": "String", "mandatory": false, "max_length": 32, "description": "Secondary account or phone number." },
+        { "field": "acquiringBank", "type": "String", "mandatory": false, "max_length": 32, "description": "Name of the acquiring bank." },
+        { "field": "currency", "type": "Enum", "mandatory": false, "default": "KHR", "options": ["KHR", "USD"], "description": "Transaction currency." },
+        { "field": "amount", "type": "Double", "mandatory": false, "max_length": 13, "description": "Payment amount. Set to null or 0 for static QR." },
+        { "field": "merchantCity", "type": "String", "mandatory": false, "max_length": 15, "default": "Phnom Penh", "description": "City of the merchant." }
+      ]
+    },
+    {
+      "name": "Generate KHQR (Merchant)",
+      "usage": "For registered businesses. Requires formal Merchant and Store IDs for reconciliation.",
+      "parameters": [
+        { "field": "bakongAccountId", "type": "String", "mandatory": true, "max_length": 32, "description": "Merchant's Bakong ID." },
+        { "field": "merchantId", "type": "String", "mandatory": true, "max_length": 32, "description": "Official Merchant ID assigned by the bank." },
+        { "field": "acquiringBank", "type": "String", "mandatory": true, "max_length": 32, "description": "Full name of the acquiring bank." },
+        { "field": "merchantName", "type": "String", "mandatory": true, "max_length": 25, "description": "Registered business name." },
+        { "field": "amount", "type": "Double", "mandatory": false, "max_length": 13, "description": "Payment amount." },
+        { "field": "currency", "type": "Enum", "mandatory": false, "default": "KHR", "options": ["KHR", "USD"] },
+        { "field": "billNumber", "type": "String", "mandatory": false, "max_length": 25, "description": "Invoice reference number." },
+        { "field": "mobileNumber", "type": "String", "mandatory": false, "max_length": 25, "description": "Merchant mobile in international format (855...)." },
+        { "field": "storeLabel", "type": "String", "mandatory": false, "max_length": 25, "description": "Specific store location label." },
+        { "field": "terminalLabel", "type": "String", "mandatory": false, "max_length": 25, "description": "Specific POS/terminal identifier." },
+        { "field": "upiAccountInformation", "type": "String", "mandatory": false, "max_length": 31, "description": "UPI format: Acquirer IIN (8) + Forwarding IIN (8) + Merchant ID (15)." }
+      ]
+    },
+    {
+      "name": "Verification & Decoding",
+      "usage": "Validation and parsing of raw QR strings into structured data.",
+      "endpoints": [
+        {
+          "action": "Verify KHQR",
+          "parameters": [
+            { "field": "qrCode", "type": "String", "mandatory": true, "description": "The raw KHQR string to validate." }
+          ],
+          "returns": "Boolean (Validation status via CRC check)"
+        },
+        {
+          "action": "Decode KHQR",
+          "parameters": [
+            { "field": "qrCode", "type": "String", "mandatory": true, "description": "The raw KHQR string to parse." }
+          ],
+          "returns": "JSON Object containing all EMVCo tags"
+        }
+      ]
+    },
+    {
+      "name": "KHQR Deeplink",
+      "usage": "To trigger the payment flow directly within a banking mobile app.",
+      "parameters": [
+        { "field": "qr", "type": "String", "mandatory": true, "description": "The raw KHQR string." },
+        { "field": "url", "type": "String", "mandatory": true, "description": "NBC generation API URL." },
+        { "field": "appName", "type": "String", "mandatory": true, "description": "The name of your application." },
+        { "field": "appIconUrl", "type": "String", "mandatory": true, "description": "Public URL to your app's icon." },
+        { "field": "appDeepLinkCallBack", "type": "String", "mandatory": true, "description": "Return URL after transaction completion." }
+      ]
+    }
+  ],
+  "technical_implementation_notes": {
+    "crc_polynomial": "0x1021",
+    "crc_initial_value": "0xFFFF",
+    "emvco_tag_format": "ID(2) + Length(2) + Value(Var)",
+    "static_qr_id01": "11",
+    "dynamic_qr_id01": "12"
+  }
+}

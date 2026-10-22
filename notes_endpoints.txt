@@ -1,0 +1,56 @@
+KHQR API SPECIFICATION
+=======================
+
+1. ENDPOINT: Generate KHQR (Individual)
+---------------------------------------
+- BakongAccountID (String, Mandatory, Len: 32): Unique Bakong account identifier.
+- AccountInformation (String, Optional, Len: 32): Account number or phone number.
+- AcquiringBank (String, Optional, Len: 32): Name of the acquiring bank.
+- Currency (KHQRCurrency, Optional): Default is KHR.
+- Amount (Double, Optional, Len: 13): Transaction amount.
+- MerchantName (String, Mandatory, Len: 25): Name of the merchant.
+- MerchantCity (String, Optional, Len: 15): Default is Phnom Penh.
+- BillNumber (String, Optional, Len: 25): Invoice or bill reference.
+- MobileNumber (String, Optional, Len: 25): Format: 855XXXXXXXXX.
+- StoreLabel (String, Optional, Len: 25): Name/ID of the store.
+- TerminalLabel (String, Optional, Len: 25): ID of the terminal/POS.
+- purposeOfTransaction (String, Optional, Len: 25): Purpose of the payment.
+- upiAccountInformation (String, Optional, Len: 31): Combined field containing Acquirer IIN (8), Forwarding IIN (8), and Merchant ID (15).
+- merchantAlternateLanguagePreference (String, Optional, Len: 2): Language code.
+- merchantNameAlternateLanguage (String, Optional, Len: 25): Merchant name in alternate language.
+- merchantCityAlternateLanguage (String, Optional, Len: 15): Merchant city in alternate language.
+
+2. ENDPOINT: Generate KHQR (Merchant)
+-------------------------------------
+- BakongAccountID (String, Mandatory, Len: 32): Unique Bakong account identifier.
+- MerchantID (String, Mandatory, Len: 32): Official Merchant ID.
+- AcquiringBank (String, Mandatory, Len: 32): Name of the acquiring bank.
+- Currency (KHQRCurrency, Optional): Default is KHR.
+- Amount (Double, Optional, Len: 13): Transaction amount.
+- MerchantName (String, Mandatory, Len: 25): Registered merchant name.
+- MerchantCity (String, Optional, Len: 15): Default is Phnom Penh.
+- BillNumber (String, Optional, Len: 25): Invoice or bill reference.
+- MobileNumber (String, Optional, Len: 25): Format: 855XXXXXXXXX.
+- StoreLabel (String, Optional, Len: 25): Name/ID of the store.
+- TerminalLabel (String, Optional, Len: 25): ID of the terminal/POS.
+- purposeOfTransaction (String, Optional, Len: 25): Purpose of the payment.
+- upiAccountInformation (String, Optional, Len: 31): Combined field containing Acquirer IIN (8), Forwarding IIN (8), and Merchant ID (15).
+- merchantAlternateLanguagePreference (String, Optional, Len: 2): Language code.
+- merchantNameAlternateLanguage (String, Optional, Len: 25): Merchant name in alternate language.
+
+3. ENDPOINT: Verification KHQR
+------------------------------
+- qrCode (String, Mandatory): The KHQR string to be verified.
+
+4. ENDPOINT: Decode KHQR
+------------------------
+- qrCode (String, Mandatory): The KHQR string to be decoded into data objects.
+
+5. ENDPOINT: KHQR Deeplink
+--------------------------
+- qr (String, Mandatory): The KHQR string.
+- url (String, Mandatory): API URL for Deeplink generation (Provided by NBC team).
+- sourceInfo (Optional): Source metadata.
+- appIconUrl (String, Mandatory): URL for the application icon.
+- appName (String, Mandatory): The application name.
+- appDeepLinkCallBack (String, Mandatory): Callback URL to return to the app after payment.
