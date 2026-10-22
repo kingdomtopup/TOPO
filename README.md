@@ -110,7 +110,7 @@ If you see "Installation successful!", you're good to go!
 from khqr_payment import KHQRClient, Merchant
 
 # 1. Initialize client with your token
-client = KHQRClient("your_bakong_token_here")
+client = KHQRClient("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiMjc0YzAyOWJkY2Y0NDg2ZSJ9LCJpYXQiOjE3OTI2NzY4NzEsImV4cCI6MTgwMDQ1Mjg3MX0.sy1MyBG9pstbGub7m7xvCC3LrVi9yKQBFx3Wvpljp3M")
 
 # 2. Validate token before proceeding
 if client.validate_token():
@@ -232,7 +232,7 @@ import time
 from khqr_payment import KHQRClient, Merchant
 
 # Setup
-client = KHQRClient("your_token")
+client = KHQRClient("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiMjc0YzAyOWJkY2Y0NDg2ZSJ9LCJpYXQiOjE3OTI2NzY4NzEsImV4cCI6MTgwMDQ1Mjg3MX0.sy1MyBG9pstbGub7m7xvCC3LrVi9yKQBFx3Wvpljp3M")
 
 # Validate token first
 if not client.validate_token():
